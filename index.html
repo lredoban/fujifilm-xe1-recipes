@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Recettes Fujifilm X-E1 — C1 à C7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #efe6d6;
+    --bg-soft: #e7ddc9;
+    --ink: #1a1a1a;
+    --ink-soft: #4a463e;
+    --rule: #1a1a1a;
+    --pink: #e6a8a3;
+    --pink-soft: #f0c9c4;
+    --cyan: #6ea59c;
+    --cyan-soft: #b9d3cf;
+    --terracotta: #c97a4e;
+    --sand: #d9c188;
+    --sky: #9ab7c9;
+    --plum: #5b3a4a;
+    --paper: #f7f0e0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .serif { font-family: "Instrument Serif", "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+
+  /* ——— Page frame ——— */
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 48px 96px;
+    position: relative;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 32px 22px 64px; }
+  }
+
+  /* ——— Header ——— */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 64px;
+  }
+  .topbar .mark { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .topbar .mark .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--terracotta); }
+  .topbar .meta { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: end;
+    margin-bottom: 96px;
+  }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; gap: 32px; } }
+
+  .hero h1 {
+    margin: 0;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 124px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--terracotta); }
+  .hero .lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 36ch;
+  }
+  .hero .lede .pill {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  /* ——— Texture strip (clin d'œil mosaïque) ——— */
+  .strip {
+    height: 22px;
+    background-image:
+      linear-gradient(90deg, var(--ink) 50%, transparent 50%),
+      linear-gradient(90deg, transparent 50%, var(--pink) 50%);
+    background-size: 22px 22px, 22px 22px;
+    background-position: 0 0, 11px 11px;
+    background-repeat: repeat-x;
+    margin: 0 0 56px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    opacity: 0.92;
+  }
+
+  /* ——— Index ——— */
+  .index {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 14px;
+    margin-bottom: 96px;
+  }
+  @media (max-width: 860px) { .index { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 540px) { .index { grid-template-columns: repeat(2, 1fr); } }
+  .index a {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 12px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform .18s ease, background .18s ease;
+  }
+  .index a:hover { transform: translate(-2px, -2px); background: var(--bg-soft); box-shadow: 4px 4px 0 var(--ink); }
+  .index a .k { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.06em; }
+  .index a .n { font-family: "Instrument Serif", serif; font-size: 22px; line-height: 1.05; letter-spacing: -0.01em; }
+
+  /* ——— Recipe ——— */
+  .recipe {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+    border-top: 1px solid var(--ink);
+    padding: 56px 0 64px;
+    align-items: start;
+    position: relative;
+  }
+  .recipe:last-child { border-bottom: 1px solid var(--ink); }
+  @media (max-width: 860px) { .recipe { grid-template-columns: 1fr; gap: 28px; padding: 36px 0 44px; } }
+
+  .recipe .slot { position: relative; }
+  .recipe .slot .num {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--bg);
+    padding-right: 8px;
+    z-index: 2;
+  }
+  .recipe .art {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+  .recipe .art svg { display: block; width: 100%; height: 100%; }
+  .recipe .caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .recipe h2 {
+    margin: 0 0 4px;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5.2vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .recipe h2 em { font-style: italic; }
+  .recipe .sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    letter-spacing: 0.01em;
+  }
+  .recipe .sub .src {
+    display: inline-block;
+    margin-left: 8px;
+    padding-left: 8px;
+    border-left: 1px solid var(--ink-soft);
+  }
+  .recipe .usage {
+    font-family: "Instrument Serif", serif;
+    font-size: 22px;
+    line-height: 1.35;
+    margin: 0 0 28px;
+    color: var(--ink);
+    max-width: 38ch;
+    text-wrap: pretty;
+  }
+  .recipe .usage em { font-style: italic; }
+
+  /* params table */
+  .params {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1px;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    margin: 0 0 22px;
+  }
+  .params .cell {
+    background: var(--paper);
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .params .cell .lbl {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .params .cell .val {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+  }
+  .params .cell.wide { grid-column: 1 / -1; }
+
+  .notes {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    border-top: 1px dashed var(--ink-soft);
+    padding-top: 16px;
+  }
+  .notes .tag {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-right: 6px;
+  }
+  .variant {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--terracotta);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .variant b { font-weight: 600; }
+
+  /* WB section */
+  .wb {
+    margin-top: 80px;
+    border-top: 1px solid var(--ink);
+    padding-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+  @media (max-width: 860px) { .wb { grid-template-columns: 1fr; gap: 28px; } }
+  .wb h3 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.05;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .wb h3 em { font-style: italic; color: var(--cyan); }
+  .wb p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: var(--ink); }
+  .wb .cheat {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 20px 22px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    line-height: 1.85;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .wb .cheat::before {
+    content: "CHEAT-SHEET TERRAIN";
+    position: absolute;
+    top: 10px; right: 12px;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--sand);
+  }
+  .wb .cheat .row { display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; }
+  .wb .cheat .row .slot { color: var(--terracotta); }
+  .wb .cheat .row .v { color: var(--cyan-soft); }
+
+  /* footer */
+  footer {
+    margin-top: 96px;
+    border-top: 1px solid var(--ink);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* dot grid bg behind hero */
+  .dotgrid {
+    position: absolute;
+    inset: auto 48px 0 auto;
+    width: 220px; height: 110px;
+    background-image: radial-gradient(var(--ink) 1.2px, transparent 1.2px);
+    background-size: 14px 14px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  @media (max-width: 720px) { .dotgrid { display: none; } }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <div class="mark"><span class="dot"></span> Fujifilm X-E1 · X-Trans I</div>
+      <div class="meta">v1.3 · SOOC · EXR Pro</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Sept <em>recettes</em><br/>pour un capteur<br/>obstiné.</h1>
+      </div>
+      <div class="lede">
+        <span class="pill">Banque C1 — C7</span>
+        <p>Banque de simulations couleur et monochrome calibrée à la main pour la X-E1, posée par tâtonnement&nbsp;: une recette par usage, sans collision de balance des blancs, lisible d'un coup d'œil.</p>
+      </div>
+      <div class="dotgrid" aria-hidden="true"></div>
+    </section>
+
+    <div class="strip" aria-hidden="true"></div>
+
+    <nav class="index" aria-label="Index des recettes">
+      <a href="#c1"><span class="k">C1</span><span class="n">Portra 400</span></a>
+      <a href="#c2"><span class="k">C2</span><span class="n">Superia City</span></a>
+      <a href="#c3"><span class="k">C3</span><span class="n">Classic Analog</span></a>
+      <a href="#c4"><span class="k">C4</span><span class="n">Faux Classic Chrome</span></a>
+      <a href="#c5"><span class="k">C5</span><span class="n">Vivid Chrome</span></a>
+      <a href="#c6"><span class="k">C6</span><span class="n">Dark Knight</span></a>
+      <a href="#c7"><span class="k">C7</span><span class="n">Sepia</span></a>
+    </nav>
+
+    <!-- ============ C1 PORTRA 400 ============ -->
+    <article class="recipe" id="c1">
+      <div class="slot">
+        <span class="num">Slot · C1</span>
+        <div class="art" aria-hidden="true">
+          <!-- Soleil chaud sur champ ambré, contours doux, peau -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="#f0d9a8"/>
+            <rect y="320" width="400" height="180" fill="#d99b6a"/>
+            <circle cx="280" cy="180" r="120" fill="#e9a566"/>
+            <circle cx="280" cy="180" r="120" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+            <circle cx="120" cy="380" r="70" fill="#f6e2bf"/>
+            <circle cx="120" cy="380" r="70" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+            <line x1="0" y1="320" x2="400" y2="320" stroke="#1a1a1a" stroke-width="1.2"/>
+            <!-- film perforation -->
+            <g fill="#1a1a1a" opacity="0.85">
+              <rect x="18" y="20"  width="14" height="22"/>
+              <rect x="18" y="58"  width="14" height="22"/>
+              <rect x="18" y="96"  width="14" height="22"/>
+              <rect x="18" y="134" width="14" height="22"/>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 01</span><span>Portrait · Golden hour</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Portra <em>400</em></h2>
+        <p class="sub">Portrait, famille, plein soleil &amp; golden hour <span class="src">Piotr Skrzypek · piotrecipes</span></p>
+        <p class="usage">Neutre, contraste profond, peaux superbes. Conçue pour la forte lumière — sur-exposer franchement, le X-Trans I aime ça.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">PRO Neg Hi</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">Auto</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">0</span></div>
+          <div class="cell"><span class="lbl">Color</span><span class="val">0</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO max</span><span class="val">3200</span></div>
+          <div class="cell wide"><span class="lbl">WB · Kelvin 6500K</span><span class="val">−1R / 0B</span></div>
+          <div class="cell wide"><span class="lbl">Exp. Comp.</span><span class="val">+1 à +1⅓</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          À éviter en intérieur, artificiel et nuit. Ajuster le Kelvin à la main&nbsp;: <b>6300K</b> en golden hour, <b>6700K</b> en plein jour. Seul réglage manuel récurrent du set.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ C2 SUPERIA CITY ============ -->
+    <article class="recipe" id="c2">
+      <div class="slot">
+        <span class="num">Slot · C2</span>
+        <div class="art" aria-hidden="true">
+          <!-- Bandes punchy + cast chaud, scène de rue couverte -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="#f0c9c4"/>
+            <rect y="0" width="400" height="120" fill="#e6a8a3"/>
+            <rect y="370" width="400" height="130" fill="#c97a4e"/>
+            <!-- vertical city blocks -->
+            <rect x="50"  y="150" width="60" height="220" fill="#1a1a1a"/>
+            <rect x="130" y="200" width="70" height="170" fill="#e9b85a"/>
+            <rect x="220" y="170" width="40" height="200" fill="#1a1a1a"/>
+            <rect x="280" y="220" width="80" height="150" fill="#a86056"/>
+            <!-- windows -->
+            <g fill="#f0c9c4">
+              <rect x="60"  y="170" width="10" height="14"/>
+              <rect x="80"  y="170" width="10" height="14"/>
+              <rect x="60"  y="200" width="10" height="14"/>
+              <rect x="80"  y="200" width="10" height="14"/>
+              <rect x="60"  y="230" width="10" height="14"/>
+              <rect x="80"  y="230" width="10" height="14"/>
+            </g>
+            <line x1="0" y1="370" x2="400" y2="370" stroke="#1a1a1a" stroke-width="1.2"/>
+            <line x1="0" y1="120" x2="400" y2="120" stroke="#1a1a1a" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 02</span><span>Rue · Couvert lumineux</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Superia <em>City</em></h2>
+        <p class="sub">Quotidien, rue punchy, scènes de vie <span class="src">Joy Roesch · Fuji X Weekly</span></p>
+        <p class="usage">Punchy avec un <em>cast chaud</em>, excellent en couvert et en rue lumineuse. Les rouges peuvent virer rose vif — pas de Color Chrome pour corriger.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">Astia</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">200</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">+1</span></div>
+          <div class="cell"><span class="lbl">Color</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">0</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO</span><span class="val">400 — 3200</span></div>
+          <div class="cell wide"><span class="lbl">WB · Shade</span><span class="val">+2R / +2B</span></div>
+          <div class="cell wide"><span class="lbl">Exp. Comp.</span><span class="val">+⅔ à +1</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          DR200 impose ISO ≥ 400. Préférée par temps couvert clair, où le cast chaud sauve la lumière plate.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ C3 CLASSIC ANALOG ============ -->
+    <article class="recipe" id="c3">
+      <div class="slot">
+        <span class="num">Slot · C3</span>
+        <div class="art" aria-hidden="true">
+          <!-- Champ muté, grille de points, beige analog -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="#e0c89a"/>
+            <rect x="60" y="60" width="280" height="380" fill="#d9b885"/>
+            <rect x="60" y="60" width="280" height="380" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+            <!-- dots grid -->
+            <g fill="#1a1a1a" opacity="0.78">
+              <!-- 6 cols x 9 rows -->
+              <circle cx="100" cy="100" r="6"/><circle cx="148" cy="100" r="6"/><circle cx="196" cy="100" r="6"/><circle cx="244" cy="100" r="6"/><circle cx="292" cy="100" r="6"/>
+              <circle cx="100" cy="148" r="6"/><circle cx="148" cy="148" r="6"/><circle cx="196" cy="148" r="6"/><circle cx="244" cy="148" r="6"/><circle cx="292" cy="148" r="6"/>
+              <circle cx="100" cy="196" r="6"/><circle cx="148" cy="196" r="6"/><circle cx="196" cy="196" r="6"/><circle cx="244" cy="196" r="6"/><circle cx="292" cy="196" r="6"/>
+              <circle cx="100" cy="244" r="6"/><circle cx="148" cy="244" r="6"/><circle cx="196" cy="244" r="6"/><circle cx="244" cy="244" r="6"/><circle cx="292" cy="244" r="6"/>
+              <circle cx="100" cy="292" r="6"/><circle cx="148" cy="292" r="6"/><circle cx="196" cy="292" r="6"/><circle cx="244" cy="292" r="6"/><circle cx="292" cy="292" r="6"/>
+              <circle cx="100" cy="340" r="6"/><circle cx="148" cy="340" r="6"/><circle cx="196" cy="340" r="6"/><circle cx="244" cy="340" r="6"/><circle cx="292" cy="340" r="6"/>
+              <circle cx="100" cy="388" r="6"/><circle cx="148" cy="388" r="6"/><circle cx="196" cy="388" r="6"/><circle cx="244" cy="388" r="6"/><circle cx="292" cy="388" r="6"/>
+            </g>
+            <!-- accent disc -->
+            <circle cx="244" cy="244" r="22" fill="#c97a4e"/>
+            <circle cx="244" cy="244" r="22" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 03</span><span>Vintage · Chaud muté</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Classic <em>Analog</em></h2>
+        <p class="sub">Vintage chaud reposant, rue dure de plein jour <span class="src">Ritchie Roesch · Fuji X Weekly</span></p>
+        <p class="usage">Portra-ish muté, <em>chaud doux</em>. Contrepoint calme aux recettes punchy quand la lumière tape fort.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">Provia</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">400</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">−1</span></div>
+          <div class="cell"><span class="lbl">Color</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">0</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO</span><span class="val">800 — 3200</span></div>
+          <div class="cell wide"><span class="lbl">WB · Daylight / Fine</span><span class="val">+1R / −6B</span></div>
+          <div class="cell wide"><span class="lbl">Exp. Comp.</span><span class="val">+⅓ à +⅔</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          DR400 impose ISO ≥ 800. Surveiller le <i>mottling</i> des ciels sur scène très contrastée — sinon repasser DR200 + tons à +1.
+
+          <div class="variant">
+            <b>Variante "+ punchy"</b> (à tester) — Color&nbsp;0, DR200, Exp +⅓. Relève la saturation sans casser le côté chaud&nbsp;; ISO mini passe à 400.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ C4 FAUX CLASSIC CHROME ============ -->
+    <article class="recipe" id="c4">
+      <div class="slot">
+        <span class="num">Slot · C4</span>
+        <div class="art" aria-hidden="true">
+          <!-- Polyvalent, blocs équilibrés, chrome modéré -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="#dcd3c0"/>
+            <!-- four equal-ish blocks -->
+            <rect x="40"  y="60"  width="150" height="180" fill="#9ab7c9"/>
+            <rect x="210" y="60"  width="150" height="180" fill="#c97a4e"/>
+            <rect x="40"  y="260" width="150" height="180" fill="#e9b85a"/>
+            <rect x="210" y="260" width="150" height="180" fill="#5b3a4a"/>
+            <g fill="none" stroke="#1a1a1a" stroke-width="1.2">
+              <rect x="40"  y="60"  width="150" height="180"/>
+              <rect x="210" y="60"  width="150" height="180"/>
+              <rect x="40"  y="260" width="150" height="180"/>
+              <rect x="210" y="260" width="150" height="180"/>
+            </g>
+            <!-- small triangle pin -->
+            <polygon points="200,240 220,260 180,260" fill="#1a1a1a"/>
+            <polygon points="200,260 220,240 180,240" fill="#1a1a1a"/>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 04</span><span>Tout-terrain · Voyage</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Faux <em>Classic Chrome</em></h2>
+        <p class="sub">Rue, voyage, polyvalent <span class="src">Ritchie Roesch · Fuji X Weekly</span></p>
+        <p class="usage">Substitut universel de Classic Chrome — <em>tout-terrain</em>. Base idéale pour dériver un autre look plus tard.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">PRO Neg Std</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">200</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">+1</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">+1</span></div>
+          <div class="cell"><span class="lbl">Color</span><span class="val">+1</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">0</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO</span><span class="val">400 — 3200</span></div>
+          <div class="cell wide"><span class="lbl">WB · Auto</span><span class="val">0R / −1B</span></div>
+          <div class="cell wide"><span class="lbl">Exp. Comp.</span><span class="val">0 à +⅓</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          DR200 impose ISO ≥ 400. Le shift WB Auto est partagé avec C6 et C7 (sans effet sur eux).
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ C5 VIVID CHROME ============ -->
+    <article class="recipe" id="c5">
+      <div class="slot">
+        <span class="num">Slot · C5</span>
+        <div class="art" aria-hidden="true">
+          <!-- Damier saturé froid + accent -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="#b9d3cf"/>
+            <!-- checkerboard center, Fujichrome-ish -->
+            <g>
+              <pattern id="check5" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <rect width="40" height="40" fill="#6ea59c"/>
+                <rect x="0" y="0" width="20" height="20" fill="#1a1a1a"/>
+                <rect x="20" y="20" width="20" height="20" fill="#1a1a1a"/>
+              </pattern>
+              <rect x="40" y="80" width="320" height="340" fill="url(#check5)"/>
+              <rect x="40" y="80" width="320" height="340" fill="none" stroke="#1a1a1a" stroke-width="1.4"/>
+            </g>
+            <!-- pink stripe accent diagonal -->
+            <polygon points="40,300 360,140 360,180 40,340" fill="#e6a8a3"/>
+            <polygon points="40,300 360,140 360,180 40,340" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 05</span><span>Punchy froid · Voyage</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Vivid <em>Chrome</em></h2>
+        <p class="sub">Couleurs vives façon Fujichrome, urbain &amp; voyage <span class="src">Joy Roesch · Fuji X Weekly</span></p>
+        <p class="usage">Le plus saturé du set, <em>rendu frais</em>. Slot décor / ambiance — Velvia sur les peaux marque trop les rouges.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">Velvia</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">200</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">+1</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Color</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">+1</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO</span><span class="val">400 — 3200</span></div>
+          <div class="cell wide"><span class="lbl">WB · Fluorescent 1</span><span class="val">−5R / +5B</span></div>
+          <div class="cell wide"><span class="lbl">Exp. Comp.</span><span class="val">+⅓ à +⅔</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          DR200 impose ISO ≥ 400.
+
+          <div class="variant">
+            <b>Variante "+ subtile"</b> (à tester) — Color +1, Sharp 0. Calme l'agressivité sur les peaux en scène de rue avec des gens.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ C6 DARK KNIGHT ============ -->
+    <article class="recipe" id="c6">
+      <div class="slot">
+        <span class="num">Slot · C6</span>
+        <div class="art" aria-hidden="true">
+          <!-- N&B contrasté, plans durs -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="#ede5d4"/>
+            <polygon points="0,0 400,0 400,260 0,360" fill="#1a1a1a"/>
+            <polygon points="0,360 400,260 400,500 0,500" fill="#7a7468"/>
+            <circle cx="280" cy="120" r="56" fill="#ede5d4"/>
+            <circle cx="280" cy="120" r="56" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+            <!-- vertical bars (street rhythm) -->
+            <g fill="#ede5d4">
+              <rect x="40"  y="240" width="6" height="80"/>
+              <rect x="60"  y="240" width="6" height="80"/>
+              <rect x="80"  y="240" width="6" height="80"/>
+              <rect x="100" y="240" width="6" height="80"/>
+              <rect x="120" y="240" width="6" height="80"/>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 06</span><span>N&amp;B · Contraste dur</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Dark <em>Knight</em></h2>
+        <p class="sub">Noir &amp; blanc contrasté, lumière dure <span class="src">Jorge Perez · jperez.ca</span></p>
+        <p class="usage">Substitut <em>Acros contrasté</em>. Rue dramatique, ombres marquées, blancs francs.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">Monochrome</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">100</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">−1</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO base</span><span class="val">200</span></div>
+          <div class="cell"><span class="lbl">Exp. Comp.</span><span class="val">selon scène</span></div>
+          <div class="cell wide"><span class="lbl">WB · Auto (hérite C4)</span><span class="val">0R / −1B</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          Pas de contrainte ISO propre, mais si l'Auto-ISO mini est à 400 (set couleur) le 200 base n'est pas atteint — impact bruit mineur.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ C7 SEPIA ============ -->
+    <article class="recipe" id="c7">
+      <div class="slot">
+        <span class="num">Slot · C7</span>
+        <div class="art" aria-hidden="true">
+          <!-- Sépia toné, tirage argentique chaud -->
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sep" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%"   stop-color="#c4a378"/>
+                <stop offset="100%" stop-color="#8a5a36"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#sep)"/>
+            <!-- vignette tirage -->
+            <rect x="48" y="48" width="304" height="404" fill="none" stroke="#3a2a1a" stroke-width="2"/>
+            <!-- arch -->
+            <path d="M 130 380 L 130 230 Q 130 160 200 160 Q 270 160 270 230 L 270 380 Z" fill="#5a3a20"/>
+            <path d="M 130 380 L 130 230 Q 130 160 200 160 Q 270 160 270 230 L 270 380 Z" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+            <!-- horizon -->
+            <line x1="48" y1="380" x2="352" y2="380" stroke="#3a2a1a" stroke-width="1.2"/>
+            <!-- film numbers -->
+            <g fill="#3a2a1a" font-family="JetBrains Mono, monospace" font-size="11" opacity="0.7">
+              <text x="60" y="76">07 — A</text>
+              <text x="290" y="76">↻</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span>Fig. 07</span><span>Sépia · Tirage argentique</span></div>
+      </div>
+
+      <div class="content">
+        <h2>Sepia</h2>
+        <p class="sub">N&amp;B vintage toné, ambiance chaude <span class="src">Ritchie Roesch · Fuji X Weekly</span></p>
+        <p class="usage">Seule recette Sepia publiée pour X-Trans I. Toné chaud type <em>tirage argentique sépia</em> — force du virage non réglable sur X-E1.</p>
+
+        <div class="params">
+          <div class="cell"><span class="lbl">Simulation</span><span class="val">Sepia</span></div>
+          <div class="cell"><span class="lbl">DR</span><span class="val">200</span></div>
+          <div class="cell"><span class="lbl">Highlight</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Shadow</span><span class="val">+2</span></div>
+          <div class="cell"><span class="lbl">Sharpness</span><span class="val">−1</span></div>
+          <div class="cell"><span class="lbl">NR</span><span class="val">−2</span></div>
+          <div class="cell"><span class="lbl">ISO</span><span class="val">400 — 3200</span></div>
+          <div class="cell"><span class="lbl">Exp. Comp.</span><span class="val">selon scène</span></div>
+          <div class="cell wide"><span class="lbl">WB · Auto (hérite C4)</span><span class="val">sans effet — simulation pré-tonée</span></div>
+        </div>
+
+        <div class="notes">
+          <span class="tag">Notes</span>
+          DR200 impose ISO ≥ 400. La balance des blancs est neutralisée par le virage sépia&nbsp;: aucun réglage WB n'a d'incidence visible.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ WB SECTION ============ -->
+    <section class="wb">
+      <div>
+        <h3>Balance des blancs, <em>une fois pour toutes</em>.</h3>
+        <p>Le shift WB n'est pas mémorisé par slot C1–C7 mais <b>par type de WB, globalement</b>. Réglé une fois pour un type, il reste pour ce type.</p>
+        <p>Comme chaque slot couleur a un type de WB unique, chaque shift se règle <b>une seule fois</b> puis ne bouge plus. Vérifier toutefois la valeur affichée avant une session si beaucoup de manipulations menu — le firmware ne persiste pas toujours de façon fiable.</p>
+        <p style="font-size:13.5px;color:var(--ink-soft);"><b>Procédure</b> · menu WB → choisir le type → appuyer à droite → grille 19×19 → régler R/B → valider.</p>
+      </div>
+      <div class="cheat" aria-label="Cheat-sheet à coller sous l'appareil">
+        <div class="row" style="margin-top:18px;"><span class="slot">C1</span><span>Kelvin 6500K</span><span class="v">−1R · 0B</span></div>
+        <div class="row"><span></span><span style="color:var(--sand);opacity:.7;">6300 GH / 6700 plein jour</span><span></span></div>
+        <div class="row"><span class="slot">C2</span><span>Shade</span><span class="v">+2R · +2B</span></div>
+        <div class="row"><span class="slot">C3</span><span>Daylight</span><span class="v">+1R · −6B</span></div>
+        <div class="row"><span class="slot">C4</span><span>Auto</span><span class="v">0R · −1B</span></div>
+        <div class="row"><span class="slot">C5</span><span>Fluo 1</span><span class="v">−5R · +5B</span></div>
+        <div class="row"><span class="slot">C6</span><span>Auto (hérite)</span><span class="v">— sans effet</span></div>
+        <div class="row"><span class="slot">C7</span><span>Auto (hérite)</span><span class="v">— sans effet</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Recettes X-E1 — C1 à C7</span>
+      <span>v1.3 · Mai 2026</span>
+    </footer>
+
+  </div>
+</body>
+</html>
